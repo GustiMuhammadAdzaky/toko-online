@@ -9,6 +9,7 @@ $nama = [
     'id' => 'nama',
     'value' => null,
     'class' => 'form-control',
+    'required'
 ];
 $harga = [
     'name' => 'harga',

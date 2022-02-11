@@ -1,6 +1,8 @@
 <?= $this->extend('layout') ?>
 <?= $this->section('content') ?>
 <?php
+
+
 $id_barang = [
     'name' => 'id_barang',
     'id' => 'id_barang',
@@ -58,7 +60,15 @@ $submit = [
     'value' => 'Beli',
     'class' => 'btn btn-success',
 ];
+
+
+
+// dd($model);
+
 ?>
+
+
+
 
 <div class="container">
     <div class="row">
@@ -74,7 +84,7 @@ $submit = [
         </div>
         <div class="col-6">
             <h4>Pengiriman</h4>
-            <div class="form-group">
+            <div class="form-group" id="form">
                 <label for="provinsi">Pilih Provinsi</label>
                 <select class="form-control" id="provinsi">
                     <option>Select Provinsi</option>
@@ -104,6 +114,8 @@ $submit = [
             <div class="form-group">
                 <?= form_label('Jumlah Pembelian', 'jumlah') ?>
                 <?= form_input($jumlah) ?>
+                <i class="fas fa-coffee"></i>
+                <i class="fas fa-exclamation-circle"></i>
             </div>
             <div class="form-group">
                 <?= form_label('Ongkir', 'ongkir') ?>
@@ -132,6 +144,19 @@ $submit = [
 <?= $this->endSection() ?>
 <?= $this->section('script') ?>
 <script>
+    const form = document.getElementById('form');
+    const email = document.getElementById('email');
+
+    form.addEventListener('submit', (e) => {
+        let messages = []
+        if (email.value === '' || email.value == null) {
+            console.log("coba")
+            // messages.push('email is required')
+        }
+    })
+
+
+
     $('document').ready(function() {
         var jumlah_pembelian = 1;
         var harga = <?= $model->harga ?>;

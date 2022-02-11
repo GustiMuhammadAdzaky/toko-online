@@ -18,7 +18,7 @@
                 <td>
                     <img class="img-fluid" width="200px" alt="gambar" src="<?= base_url('uploads/' . $barang->gambar) ?>" />
                 </td>
-                <td><?= $barang->harga ?></td>
+                <td><?= "Rp " . number_format($barang->harga, 2, ',', '.') ?></td>
                 <td><?= $barang->stok ?></td>
                 <td>
                     <a href="<?= site_url('barang/view/' . $barang->id) ?>" class="btn btn-primary">View</a>

@@ -22,7 +22,7 @@
                 <td><?= $transaksi->id_pembeli ?></td>
                 <td><?= $transaksi->alamat ?></td>
                 <td><?= $transaksi->jumlah ?></td>
-                <td><?= $transaksi->total_harga ?></td>
+                <td><?= "Rp " . number_format($transaksi->total_harga, 2, ',', '.') ?></td>
                 <td><?= $transaksi->email ?></td>
                 <td>
                     <a href="<?= site_url('transaksi/view/' . $transaksi->id) ?>" class="btn btn-primary">View</a>

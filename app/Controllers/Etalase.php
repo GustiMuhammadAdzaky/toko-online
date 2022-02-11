@@ -29,14 +29,28 @@ class Etalase extends BaseController
 
         $modelBarang = new \App\Models\BarangModel();
 
+        $cModel = $modelBarang->findAll();
+
         $model = $modelBarang->find($id);
 
         $provinsi = $this->rajaongkir('province');
 
+
+
+
         if ($this->request->getPost()) {
             $data = $this->request->getPost();
-            $this->validation->run($data, 'transaksi');
+            $validate = $this->validation->run($data, 'transaksi');
             $errors = $this->validation->getErrors();
+            // $page = $model->id;
+            // dd($cModel[1]);
+            echo "<script>
+                alert('Data yang anda Inputkan Tidak Benar, Mohon Ulangi dan lengkapi semua data!');
+                document.location.href = 'http://127.0.0.1/toko-online/public/index.php/etalase/';
+            </script>";
+
+            // header("Refresh:0; url=http://127.0.0.1/toko-online/public/index.php/etalase/");
+
 
             if (!$errors) {
                 $transaksiModel = new \App\Models\TransaksiModel();
@@ -68,11 +82,14 @@ class Etalase extends BaseController
                 return redirect()->to(site_url($segment));
             }
         }
+        return view(
+            'etalase/beli',
+            [
+                'model' => $model,
+                'provinsi' => json_decode($provinsi)->rajaongkir->results,
 
-        return view('etalase/beli', [
-            'model' => $model,
-            'provinsi' => json_decode($provinsi)->rajaongkir->results,
-        ]);
+            ]
+        );
     }
 
     public function getCity()

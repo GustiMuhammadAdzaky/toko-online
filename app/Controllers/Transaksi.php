@@ -44,6 +44,7 @@ class Transaksi extends BaseController
 
         $transaksiModel = new \App\Models\TransaksiModel();
         $transaksi = $transaksiModel->find($id);
+        // dd($transaksi->email);
 
         $userModel = new \App\Models\UserModel();
         $pembeli = $userModel->find($transaksi->id_pembeli);

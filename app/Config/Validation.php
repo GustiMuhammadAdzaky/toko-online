@@ -70,6 +70,16 @@ class Validation
 		],
 	];
 
+	public $login_errors = [
+		'username' => [
+			'required' => '{field} Harus Diisi',
+			'min_length' => '{field} Minimal 5 Karakter',
+		],
+		'password' => [
+			'required' => '{field} Harus Diisi',
+		],
+	];
+
 	public $transaksi = [
 		'id_barang' => [
 			'rules' => 'required',
@@ -94,15 +104,14 @@ class Validation
 		],
 	];
 
-	public $login_errors = [
-		'username' => [
+	public $transaksi_errors = [
+		'email' => [
 			'required' => '{field} Harus Diisi',
 			'min_length' => '{field} Minimal 5 Karakter',
-		],
-		'password' => [
-			'required' => '{field} Harus Diisi',
-		],
+		]
 	];
+
+
 
 	public $barang = [
 		'nama' => [

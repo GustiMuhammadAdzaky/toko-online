@@ -20,6 +20,11 @@
     <style>
         body {
             padding-top: 5rem;
+            /* font-family: "font-awesome"; */
+        }
+
+        .form-control.success input {
+            border-color: #2ecc71;
         }
 
         .starter-template {
